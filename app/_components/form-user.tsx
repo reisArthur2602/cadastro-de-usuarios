@@ -4,10 +4,11 @@ import { AtSign, Phone, User } from 'lucide-react';
 import { Form } from './ui/form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { UserSchema } from '../libs/zod';
+import { UserSchema } from '../_libs/zod';
 import { UserProps } from '../_dtos/user';
 import { useEffect } from 'react';
 import { normalizePhoneNumber } from '../_utils/mask';
+import { createUser } from '../_actions/create-user';
 
 export const FormUser = () => {
   const {
@@ -26,8 +27,13 @@ export const FormUser = () => {
     setValue('phone', normalizePhoneNumber(phoneValue));
   }, [phoneValue]);
 
-  const onSubmit = (data: UserProps) => {
-    console.log(data);
+  const onSubmit = async (data: UserProps) => {
+    try {
+      await createUser(data);
+      console.log('Usuário cadastrado com sucesso');
+    } catch (error) {
+      console.log('Falha ao cadastrar usuário', error);
+    }
   };
 
   return (
