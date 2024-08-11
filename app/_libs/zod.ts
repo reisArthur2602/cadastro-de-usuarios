@@ -5,8 +5,7 @@ export const UserSchema = z.object({
   email: z
     .string()
     .min(1, 'O campo email é obrigatório')
-    .email('Insira um formato de email valido')
-    .trim(),
+    .email('Insira um formato de email valido'),
   phone: z
     .string()
     .min(1, 'O campo telefone é obrigatório')

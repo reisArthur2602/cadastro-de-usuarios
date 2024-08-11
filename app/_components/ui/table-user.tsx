@@ -14,7 +14,7 @@ export const TableUser = ({ users }: TableUserProps) => {
   };
 
   return (
-    <table className="w-full *:w-full table-fixed border-collapse ">
+    <table className="w-full *:w-full border-collapse ">
       <thead>
         <tr>
           <th className="text-left py-3 font-bold uppercase">Nome</th>
@@ -34,10 +34,7 @@ export const TableUser = ({ users }: TableUserProps) => {
             <td className="text-left py-4">{user.phone}</td>
 
             <td className="flex items-center py-4 gap-4">
-              <button className="hover:text-indigo-600 duration-200">
-                <Edit size={18} />
-              </button>
-
+            
               <button
                 className="hover:text-indigo-600 duration-200"
                 onClick={() => handleDelete(user.id)}
