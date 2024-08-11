@@ -15,6 +15,7 @@ export const FormUser = () => {
     handleSubmit,
     register,
     watch,
+    reset,
     setValue,
     formState: { errors },
   } = useForm<UserProps>({
@@ -31,6 +32,7 @@ export const FormUser = () => {
     try {
       await createUser(data);
       console.log('Usuário cadastrado com sucesso');
+      reset();
     } catch (error) {
       console.log('Falha ao cadastrar usuário', error);
     }
