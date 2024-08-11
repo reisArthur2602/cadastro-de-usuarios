@@ -1,6 +1,7 @@
 import {
   ButtonHTMLAttributes,
   FormHTMLAttributes,
+  forwardRef,
   InputHTMLAttributes,
   LabelHTMLAttributes,
 } from 'react';
@@ -13,14 +14,18 @@ const Form = ({ children, ...props }: FormHTMLAttributes<HTMLFormElement>) => {
   );
 };
 
-export const Field = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => {
+export const Field = forwardRef<
+  HTMLInputElement,
+  InputHTMLAttributes<HTMLInputElement>
+>(({ ...props }: InputHTMLAttributes<HTMLInputElement>, ref) => {
   return (
     <input
+    className="bg-transparent w-full outline-none placeholder:text-indigo-400 text-indigo-800"
       {...props}
-      className="bg-transparent w-full outline-none placeholder:text-indigo-400 text-indigo-800"
+      ref={ref}
     />
   );
-};
+});
 
 export const Label = ({
   children,
