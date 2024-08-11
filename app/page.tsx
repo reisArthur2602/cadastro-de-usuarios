@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from './_components';
-import { AtSign, Phone, User } from 'lucide-react';
+import { AtSign, Edit, Phone, Trash, User } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -8,6 +8,7 @@ const Home = () => {
       <h1 className="text-center font-bold text-xl sm:text-3xl">
         Lista de Contatos
       </h1>
+
       <Form>
         <Form.Label>
           <User size={25} />
@@ -25,6 +26,33 @@ const Home = () => {
         </Form.Label>
         <Form.Submit>Salvar</Form.Submit>
       </Form>
+
+      <table className="w-full *:w-full table-fixed border-collapse ">
+        <thead>
+          <tr>
+            <th className="text-left py-3 font-bold uppercase">Nome</th>
+            <th className="text-left py-3 font-bold uppercase">Email</th>
+            <th className="text-left py-3 font-bold uppercase">Telefone</th>
+            <th className="text-left py-3 font-bold uppercase">@</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr className="border-y border-solid border-indigo-200">
+            <td className="text-left py-4">User</td>
+            <td className="text-left py-4">email@email.com</td>
+            <td className="text-left py-4">(99) 99999-9999</td>
+            <td className="flex items-center py-4 gap-4">
+              <button className="hover:text-indigo-600 duration-200">
+                <Edit size={18} />
+              </button>
+              <button className="hover:text-indigo-600 duration-200">
+                <Trash size={18} />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </main>
   );
 };
