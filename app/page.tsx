@@ -1,6 +1,5 @@
-import React from 'react';
-import { Form } from './_components';
-import { AtSign, Edit, Phone, Trash, User } from 'lucide-react';
+import { FormUser } from './_components';
+import { Edit, Trash } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -8,24 +7,7 @@ const Home = () => {
       <h1 className="text-center font-bold text-xl sm:text-3xl">
         Lista de Contatos
       </h1>
-
-      <Form>
-        <Form.Label>
-          <User size={25} />
-          <Form.Field placeholder="Nome Completo" />
-        </Form.Label>
-
-        <Form.Label>
-          <AtSign size={25} />
-          <Form.Field placeholder="Nome Completo" />
-        </Form.Label>
-
-        <Form.Label>
-          <Phone size={25} />
-          <Form.Field placeholder="Nome Completo" />
-        </Form.Label>
-        <Form.Submit>Salvar</Form.Submit>
-      </Form>
+      <FormUser />
 
       <table className="w-full *:w-full table-fixed border-collapse ">
         <thead>
