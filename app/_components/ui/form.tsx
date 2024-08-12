@@ -4,15 +4,15 @@ import {
   forwardRef,
   InputHTMLAttributes,
   LabelHTMLAttributes,
-} from 'react';
+} from "react"
 
 const Form = ({ children, ...props }: FormHTMLAttributes<HTMLFormElement>) => {
   return (
     <form {...props} className="flex items-center gap-4">
       {children}
     </form>
-  );
-};
+  )
+}
 
 export const Field = forwardRef<
   HTMLInputElement,
@@ -20,12 +20,12 @@ export const Field = forwardRef<
 >(({ ...props }: InputHTMLAttributes<HTMLInputElement>, ref) => {
   return (
     <input
-    className="bg-transparent w-full outline-none placeholder:text-indigo-400 text-indigo-800"
+      className="w-full bg-transparent text-indigo-800 outline-none placeholder:text-indigo-400"
       {...props}
       ref={ref}
     />
-  );
-});
+  )
+})
 
 export const Label = ({
   children,
@@ -34,12 +34,12 @@ export const Label = ({
   return (
     <label
       {...props}
-      className="w-full bg-indigo-100 p-4 rounded-[0.25rem] text-indigo-400 flex items-center gap-2"
+      className="flex w-full items-center gap-2 rounded-[0.25rem] bg-indigo-100 p-4 text-indigo-400"
     >
       {children}
     </label>
-  );
-};
+  )
+}
 
 export const Submit = ({
   children,
@@ -48,15 +48,15 @@ export const Submit = ({
   return (
     <button
       {...props}
-      className="bg-indigo-600 py-4 px-8 rounded-[0.25rem] text-indigo-50 flex items-center justify-center gap-2 hover:animate-pulse duration-100 transition-all"
+      className="flex items-center justify-center gap-2 rounded-[0.25rem] bg-indigo-600 px-8 py-4 text-indigo-50 transition-all duration-100 hover:animate-pulse"
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-Form.Label = Label;
-Form.Field = Field;
-Form.Submit = Submit;
+Form.Label = Label
+Form.Field = Field
+Form.Submit = Submit
 
-export { Form };
+export { Form }
