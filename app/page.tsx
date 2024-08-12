@@ -1,5 +1,6 @@
 import { Container, FormUser, TableRow } from "./_components"
 import { prisma } from "./_libs/prisma"
+import { TABLE } from "./_utils/table"
 
 const Home = async () => {
   const users = await prisma.user.findMany()
@@ -14,10 +15,11 @@ const Home = async () => {
       <table className="w-full border-collapse *:w-full">
         <thead>
           <tr>
-            <th className="py-3 text-left font-bold uppercase">Nome</th>
-            <th className="py-3 text-left font-bold uppercase">Email</th>
-            <th className="py-3 text-left font-bold uppercase">Telefone</th>
-            <th className="py-3 text-left font-bold uppercase">@</th>
+            {TABLE.map((t) => (
+              <th className="py-3 text-left font-bold uppercase" key={t.thead}>
+                {t.thead}
+              </th>
+            ))}
           </tr>
         </thead>
 
