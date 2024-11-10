@@ -8,7 +8,7 @@ const Home = async () => {
   return (
     <Container className="flex flex-col gap-10 p-10">
       <h1 className="text-center text-xl font-bold sm:text-3xl">
-        Lista de Contatos
+        Cadastro de usuários
       </h1>
       <FormUser />
 
